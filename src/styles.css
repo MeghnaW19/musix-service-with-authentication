@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100vh; width: 100vw ;overflow-x: hidden}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field-appearance-outline .mat-form-field-outline-thick{
+    color:#9c1148;
+  }
+
+  @media(max-width:575px){
+
+    .mat-button, .mat-menu-item{
+      font-size: 0.8em !important; 
+    }
+
+    .image-class{
+      height: 50px !important;
+    }
+
+    mat-card{
+      width: 60vw !important;
+      margin-bottom: 17vh !important;
+    }
+    .my-form{
+      width: 45vw !important;
+      padding-left: 5vw !important;
+    }
+
+    mat-form-field{
+      padding-left: 9vw !important;
+    }
+
+    /* .my-form-field{
+      padding-left: 5vw !important;
+    } */
+    .example-card{
+      height: 60vh !important;
+      width: 70vw !important;
+    }
+    .image{
+      height: 40vh !important;
+      width: 34vh !important;
+
+    }
+   
+  }
+
+  @media (min-width:574px ) and (max-width:768px){
+
+    .example-card{
+      height: 40vh !important;
+      width: 30vw !important;
+    }
+    /* .image{
+      height: 40vh !important;
+      width: 34vh !important;
+
+    } */
+
+    .image{
+      height: 25vh !important;
+      width: 25vh !important;
+
+    }
+
+  }
+
+  @media (min-width:769px) and (max-width:1440px){
+    .example-card{
+      height: 40vh !important;
+      width: 30vw !important;
+    }
+    .image{
+      height: 25vh !important;
+      width: 25vh !important;
+
+    }
+
+  }

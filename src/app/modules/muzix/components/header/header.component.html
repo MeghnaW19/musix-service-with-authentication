@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    
+<img class="image-class"src="assets\Images\newimage2.png">
+
+
+<button class ="mat-button" mat-button [matMenuTriggerFor]="menu">Tracks
+</button>
+<mat-menu #menu="matMenu">
+  <button class="mat-menu-item-india" [routerLink]="['/India']" mat-menu-item>India</button>
+  <button class="mat-menu-item-spain" [routerLink]="['/Spain']"mat-menu-item >Spain</button>
+</mat-menu>
+
+
+    <button class="mat-button-wishlist" mat-button [routerLink]="['/WishList']">WishList</button>
+    <button class="mat-button-logout" mat-button (click)= "logout()">Logout</button>
+
+  </mat-toolbar-row>
+</mat-toolbar>

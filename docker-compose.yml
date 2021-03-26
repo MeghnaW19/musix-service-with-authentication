@@ -1,0 +1,94 @@
+version: '2.1'
+services:
+  
+  authService:
+    image: newauthimage
+    build: authenticationservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mysql
+      - eurekaServer
+      - rabbitmq
+    ports:
+      - 8084:8084
+    healthcheck:
+      test: "exit 0"
+  
+  userTrackService:
+    image: newuserimage
+    build: usertrackservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongo
+      - eurekaServer
+      - rabbitmq
+    ports:
+      - 8085:8085
+    healthcheck:
+      test: "exit 0" 
+
+  eurekaServer:
+    image: neweurekaservice
+    build: eurekaserverdemo/
+    restart: always
+    network_mode: host
+    ports: 
+      - 9003:9003
+    healthcheck:
+      test: "exit 0"
+
+  zuulService:
+    image: newzuulservice
+    build: zuulservice/
+    restart: always
+    network_mode: host
+    ports: 
+      - 8086:8086
+    healthcheck:
+      test: "exit 0"
+
+ 
+  
+  mysql:
+    image: mysql:5.5
+    ports:
+     - 3306:3306
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: UserDb
+      MYSQL_USER: approot
+      MYSQL_PASSWORD: root123
+    healthcheck:
+      test: "exit 0"
+
+  angular:
+    image: newangular
+    build: ./
+    network_mode: host
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: "exit 0"
+    
+  mongo:
+    image: mongo:3.2-jessie
+    ports:
+     - 27017:27017
+    container_name: mongo
+    network_mode: host
+    healthcheck:
+      test: "exit 0"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - 15672:15672
+      - 5672:5672
+    healthcheck:
+      test: "exit 0"
+
+
+
